@@ -3,6 +3,8 @@
     eyes: [...element.querySelectorAll('.eye')].map(element => ({
       element, x: 0, y: 0, velocityX: 0, velocityY: 0,
     })),
+    gazeRangeX: element.dataset.dog === 'pointy' ? .10 : .18,
+    gazeRangeY: element.dataset.dog === 'pointy' ? .075 : .12,
     idleX: 0,
     idleY: 0,
     nextGlance: performance.now() + 1800 + Math.random() * 2200,
@@ -60,8 +62,8 @@
         const centerY = rect.top + rect.height / 2;
         const gazeX = idle ? dog.idleX : Math.tanh((pointerX - centerX) / Math.max(innerWidth * .38, 260));
         const gazeY = idle ? dog.idleY : Math.tanh((pointerY - centerY) / Math.max(innerHeight * .42, 230));
-        const targetX = gazeX * rect.width * .18;
-        const targetY = gazeY * rect.height * .12;
+        const targetX = gazeX * rect.width * dog.gazeRangeX;
+        const targetY = gazeY * rect.height * dog.gazeRangeY;
         [eye.x, eye.velocityX] = settle(eye.x, eye.velocityX, targetX, seconds);
         [eye.y, eye.velocityY] = settle(eye.y, eye.velocityY, targetY, seconds);
         eye.element.style.setProperty('--look-x', `${eye.x.toFixed(2)}px`);
