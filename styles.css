@@ -10,33 +10,34 @@
 @media(max-width:400px){.hero{min-height:745px}.hero h1{font-size:42px}.hero-side{top:29%}.dog-scene{height:51%}.dog,.paw-overlay{width:82vw}.dog-spaniel,.paw-overlay-spaniel{left:-10vw}.dog-pointy,.paw-overlay-pointy{left:34vw}.brand-name{font-size:21px}.nav-cta{font-size:11px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}.pupil{will-change:auto}}
 
-/* Keep the blue iris visible around a softly blended vertical cat pupil. */
+/* A rounded pupil leaves a bright blue ring visible as the second dog looks around. */
 .dog-pointy .pupil{
-  width:34%;
-  height:49%;
-  background:radial-gradient(ellipse at center,rgba(8,45,84,.34) 0%,rgba(8,45,84,.12) 43%,transparent 72%);
-  box-shadow:none;
+  width:43%;
+  height:47%;
+  border-radius:50%;
+  background:radial-gradient(circle at 38% 32%,#18354f 0%,#0a172a 58%,#050d18 100%);
+  box-shadow:0 0 0 2px rgba(8,52,92,.22),inset -3px -4px 5px rgba(0,0,0,.28);
 }
 .dog-pointy .pupil::before{
-  left:50%;
-  top:50%;
+  left:59%;
+  top:17%;
   right:auto;
-  width:34%;
-  height:82%;
-  transform:translate(-50%,-50%);
+  width:20%;
+  height:20%;
+  transform:none;
   border-radius:50%;
-  background:linear-gradient(90deg,#123451 0%,#071321 36% 64%,#123451 100%);
-  box-shadow:0 0 2px rgba(5,30,59,.4);
+  background:#fff;
+  box-shadow:0 0 3px rgba(255,255,255,.65);
   filter:none;
 }
 .dog-pointy .pupil::after{
-  left:54%;
-  top:19%;
+  left:76%;
+  top:43%;
   right:auto;
-  width:7%;
-  height:7%;
-  background:rgba(255,255,255,.85);
-  opacity:.8;
+  width:6%;
+  height:6%;
+  background:#fff;
+  opacity:.9;
 }
 
 /* The rest of the hotel */
