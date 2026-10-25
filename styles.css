@@ -10,6 +10,15 @@
 @media(max-width:400px){.hero{min-height:745px}.hero h1{font-size:42px}.hero-side{top:29%}.dog-scene{height:51%}.dog,.paw-overlay{width:82vw}.dog-spaniel,.paw-overlay-spaniel{left:-10vw}.dog-pointy,.paw-overlay-pointy{left:34vw}.brand-name{font-size:21px}.nav-cta{font-size:11px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}.pupil{will-change:auto}}
 
+/* Let the forelegs meet the body naturally instead of showing the overlay's straight top edge. */
+.paw-overlay{
+  -webkit-mask-image:linear-gradient(to bottom,transparent 70%,#000 80%);
+  mask-image:linear-gradient(to bottom,transparent 70%,#000 80%);
+  filter:drop-shadow(0 5px 4px rgba(74,92,87,.18));
+}
+.ledge{height:13%;min-height:72px}
+@media(max-width:760px){.ledge{height:15%;min-height:58px}}
+
 /* A rounded pupil leaves a bright blue ring visible as the second dog looks around. */
 .dog-pointy .pupil{
   width:43%;
