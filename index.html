@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#dceef2" />
+    <meta name="description" content="Pillow Paws is a cozy little getaway made for very good dogs." />
+    <title>Pillow Paws — A little getaway for your best friend</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Nunito:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="Pillow Paws, back to top">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M11 29c-3.5 0-6 2.9-6 6.1 0 3.4 2.6 6.2 6.3 6.2 4.5 0 7.2-2.8 12.7-2.8s8.2 2.8 12.7 2.8c3.7 0 6.3-2.8 6.3-6.2 0-3.2-2.5-6.1-6-6.1-4.9 0-6.8-8.4-13-8.4S15.9 29 11 29Z" fill="currentColor"/><ellipse cx="9.4" cy="19.2" rx="4.3" ry="6.3" transform="rotate(-24 9.4 19.2)" fill="currentColor"/><ellipse cx="20" cy="12.2" rx="4.2" ry="6.2" transform="rotate(-8 20 12.2)" fill="currentColor"/><ellipse cx="31.5" cy="13" rx="4.2" ry="6.2" transform="rotate(12 31.5 13)" fill="currentColor"/><ellipse cx="40" cy="21.5" rx="4.1" ry="6.1" transform="rotate(29 40 21.5)" fill="currentColor"/></svg>
+          </span>
+          <span class="brand-name">pillow<span>paws</span><span class="brand-dot">.</span></span>
+        </a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#rooms">Rooms</a>
+          <a href="#the-stay">A day here</a>
+          <a href="#team">Our team</a>
+          <a href="#faq">FAQs</a>
+        </nav>
+        <a class="nav-cta" href="#book">Plan a stay <span aria-hidden="true">↗</span></a>
+        <details class="mobile-nav">
+          <summary aria-label="Open navigation menu"><span></span><span></span><span></span></summary>
+          <nav aria-label="Mobile navigation">
+            <a href="#rooms">Rooms</a><a href="#the-stay">A day here</a><a href="#team">Our team</a><a href="#faq">FAQs</a><a href="#book">Book a stay</a>
+          </nav>
+        </details>
+      </header>
+
+      <main id="top">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-decor decor-star decor-star-one" aria-hidden="true">✳</div>
+          <div class="hero-decor decor-star decor-star-two" aria-hidden="true">✳</div>
+          <div class="hero-decor decor-squiggle" aria-hidden="true"><svg viewBox="0 0 94 56" fill="none"><path d="M3 38c17-32 29 24 45-8S75 6 91 20" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg></div>
+
+          <div class="hero-copy">
+            <span class="eyebrow"><span class="eyebrow-sparkle" aria-hidden="true">✦</span> THE HAPPY PLACE FOR GOOD DOGS</span>
+            <h1 id="hero-title">A little getaway<br />for your <em>best friend.</em></h1>
+          </div>
+          <div class="hero-side">
+            <p>Cozy naps, happy tails, and all the love they get at home. A stay here feels like a treat for them <span class="nowrap">(and peace of mind for you).</span></p>
+            <a class="primary-button" href="#book">Book a stay <span class="button-arrow" aria-hidden="true">↗</span></a>
+            <span class="micro-copy">A warm welcome is waiting.</span>
+          </div>
+
+          <div class="dog-scene" role="img" aria-label="Two friendly dogs peeking over a ledge">
+            <div class="soft-halo" aria-hidden="true"></div>
+
+            <div class="dog dog-spaniel" data-dog="spaniel" aria-hidden="true">
+              <img class="dog-base" src="assets/spaniel-eye-base.webp" alt="" draggable="false" />
+              <span class="eye eye-left" style="--eye-x:41.77%;--eye-y:38.87%;--lid:#ad642d"><span class="pupil"></span><span class="lid"></span></span>
+              <span class="eye eye-right" style="--eye-x:61.13%;--eye-y:35.45%;--lid:#ad642d"><span class="pupil"></span><span class="lid"></span></span>
+            </div>
+
+            <div class="dog dog-pointy" data-dog="pointy" aria-hidden="true">
+              <img class="dog-base" src="assets/pointy-pup-blue-eye-base.webp" alt="" draggable="false" />
+              <span class="eye eye-left" style="--eye-x:41.01%;--eye-y:48.87%;--lid:#cb925e"><span class="pupil"></span><span class="lid"></span></span>
+              <span class="eye eye-right" style="--eye-x:60.67%;--eye-y:51.04%;--lid:#cb925e"><span class="pupil"></span><span class="lid"></span></span>
+            </div>
+
+            <div class="ledge" aria-hidden="true"><span class="ledge-rim"></span></div>
+            <img class="paw-overlay paw-overlay-spaniel" src="assets/spaniel-paws.webp" alt="" aria-hidden="true" draggable="false" />
+            <img class="paw-overlay paw-overlay-pointy" src="assets/pointy-pup-blue-paws.webp" alt="" aria-hidden="true" draggable="false" />
+            <div class="scene-caption"><span class="caption-heart" aria-hidden="true">♥</span> Good days begin here <span class="caption-heart" aria-hidden="true">♥</span></div>
+          </div>
+        </section>
+
+        <section class="rooms-section page-section" id="rooms" aria-labelledby="rooms-title">
+          <div class="section-heading">
+            <div><span class="section-kicker">THE COMFY COLLECTION</span><h2 id="rooms-title">Room to dream.<br /><em>Room to be a dog.</em></h2></div>
+            <p>Each of our rooms is a little home base for big adventures. Pick the spot that feels just right for your best friend.</p>
+          </div>
+          <div class="room-grid">
+            <article class="room-card">
+              <div class="room-photo"><img src="assets/room-cloud.webp" alt="Cream-colored dog resting in a bright blue-and-ivory room" loading="lazy" /><span class="room-tag">A crowd favorite</span></div>
+              <div class="room-card-body"><div class="room-name-line"><h3>The Cloud Suite</h3><span class="room-price">₹2,499 <small>/ night</small></span></div><p>For the dog who takes lounging seriously. A spacious, sun-filled retreat with a plush bed and plenty of room to stretch.</p><div class="room-perks"><span>☁ Plush bed</span><span>✦ Extra space</span></div><button type="button" class="text-link room-jump" data-room="cloud">Choose this room <span aria-hidden="true">↗</span></button></div>
+            </article>
+            <article class="room-card">
+              <div class="room-photo"><img src="assets/room-garden.webp" alt="Golden retriever relaxing beside a garden-view window" loading="lazy" /><span class="room-tag">For curious noses</span></div>
+              <div class="room-card-body"><div class="room-name-line"><h3>The Garden Suite</h3><span class="room-price">₹3,299 <small>/ night</small></span></div><p>More window watching, more room to roam. A lovely pick for dogs who want a front-row seat to the garden.</p><div class="room-perks"><span>☼ Garden view</span><span>✦ Extra space</span></div><button type="button" class="text-link room-jump" data-room="garden">Choose this room <span aria-hidden="true">↗</span></button></div>
+            </article>
+            <article class="room-card">
+              <div class="room-photo"><img src="assets/room-nook.webp" alt="Small terrier resting in a cozy blue-bedded alcove" loading="lazy" /><span class="room-tag">Small but mighty</span></div>
+              <div class="room-card-body"><div class="room-name-line"><h3>The Snuggle Nook</h3><span class="room-price">₹1,999 <small>/ night</small></span></div><p>A quiet, cocoon-like corner made for little pups, gentle dreamers, and anyone who loves a tucked-in feeling.</p><div class="room-perks"><span>♡ Cozy alcove</span><span>✦ Calm setting</span></div><button type="button" class="text-link room-jump" data-room="nook">Choose this room <span aria-hidden="true">↗</span></button></div>
+            </article>
+          </div>
+          <p class="pricing-note">Illustrative nightly rates in INR. Your booking preview shows the full stay estimate.</p>
+        </section>
+
+        <section class="stay-section page-section" id="the-stay" aria-labelledby="stay-title">
+          <div class="section-heading centered-heading"><span class="section-kicker">LITTLE MOMENTS, BIG TAIL WAGS</span><h2 id="stay-title">A day in their <em>happy place.</em></h2><p>Every dog has their own rhythm. We balance adventures with plenty of time to unwind.</p></div>
+          <div class="day-grid">
+            <article class="day-card"><img src="assets/day-play.webp" alt="Dogs playing together in a sunny grassy garden" loading="lazy" /><div><span class="day-time">MORNING</span><h3>Play, their way</h3><p>Easy introductions, garden games, and room to let their happy side out.</p></div></article>
+            <article class="day-card"><img src="assets/day-walk.webp" alt="Caregiver walking a happy dog along a garden path" loading="lazy" /><div><span class="day-time">LATE MORNING</span><h3>A good sniffari</h3><p>A gentle walk, new smells, and a little one-on-one time with a caring human.</p></div></article>
+            <article class="day-card"><img src="assets/day-meal.webp" alt="Dog enjoying a meal in a calm private suite" loading="lazy" /><div><span class="day-time">MEALTIME</span><h3>Their usual favorites</h3><p>Meals served to their routine, with fresh water always close by.</p></div></article>
+            <article class="day-card"><img src="assets/room-cloud.webp" alt="Relaxed dog napping on a soft bed in a sunny room" loading="lazy" /><div><span class="day-time">AFTERNOON & EVENING</span><h3>Cozy reset</h3><p>Quiet time, soft beds, and a peaceful night after a full day of being a dog.</p></div></article>
+          </div>
+        </section>
+
+        <section class="team-section page-section" id="team" aria-labelledby="team-title">
+          <div class="team-photo"><img src="assets/team-care.webp" alt="Pillow Paws caregivers sitting with two relaxed dogs in a bright lobby" loading="lazy" /><span class="photo-note">Good humans, great company ♥</span></div>
+          <div class="team-copy"><span class="section-kicker">A VERY GOOD CREW</span><h2 id="team-title">They'll know their name.<br /><em>And their little quirks.</em></h2><p>Settling in takes more than a comfy bed. Our team gets to know each dog's pace, favorite comforts, and the things that help them feel at ease.</p><div class="care-list"><div><span>01</span><div><h3>Gentle hellos</h3><p>New guests get time and space to explore before the fun begins.</p></div></div><div><span>02</span><div><h3>Their routine matters</h3><p>Tell us about meals, nap habits, and what makes their tail wag.</p></div></div><div><span>03</span><div><h3>Care you can feel</h3><p>Attentive people keep an eye on comfort, play, and rest throughout the day.</p></div></div></div><a class="text-link" href="#book">Tell us about your dog <span aria-hidden="true">↗</span></a></div>
+        </section>
+
+        <section class="booking-section page-section" id="book" aria-labelledby="booking-title">
+          <div class="section-heading centered-heading"><span class="section-kicker">YOUR NEXT TAIL-WAGGING GETAWAY</span><h2 id="booking-title">Let's plan their stay.</h2><p>Choose a few details and preview a stay in seconds. No payment or reservation is made in this demo.</p></div>
+          <div class="booking-layout">
+            <form class="booking-form" id="booking-form">
+              <div class="form-step"><span>01</span><div><h3>When are they visiting?</h3><p>Give us their check-in and check-out dates.</p></div></div>
+              <div class="date-row"><label>Check-in<input type="date" name="checkin" id="checkin" required /></label><label>Check-out<input type="date" name="checkout" id="checkout" required /></label></div>
+              <p class="field-error" id="date-error" role="alert" hidden>Check-out must be after check-in.</p>
+
+              <div class="form-step"><span>02</span><div><h3>Pick their room</h3><p>Every option comes with a very good place to snooze.</p></div></div>
+              <div class="room-options" role="group" aria-label="Choose a room">
+                <label class="room-option"><input type="radio" name="room" value="cloud" checked /><span><strong>The Cloud Suite</strong><small>₹2,499 / night</small></span><b aria-hidden="true">✓</b></label>
+                <label class="room-option"><input type="radio" name="room" value="garden" /><span><strong>The Garden Suite</strong><small>₹3,299 / night</small></span><b aria-hidden="true">✓</b></label>
+                <label class="room-option"><input type="radio" name="room" value="nook" /><span><strong>The Snuggle Nook</strong><small>₹1,999 / night</small></span><b aria-hidden="true">✓</b></label>
+              </div>
+
+              <div class="form-step"><span>03</span><div><h3>Tell us about your dog</h3><p>The little details help make a stay feel like theirs.</p></div></div>
+              <div class="field-grid"><label>Dog's name<input type="text" name="dogName" autocomplete="off" placeholder="e.g. Milo" maxlength="50" required /></label><label>Breed or mix<input type="text" name="breed" autocomplete="off" placeholder="e.g. Indie mix" maxlength="60" required /></label><label>Size<select name="size" required><option value="">Choose a size</option><option>Small</option><option>Medium</option><option>Large</option><option>Extra large</option></select></label><label>Age<input type="number" name="age" min="0" max="25" step="0.5" placeholder="Years" required /></label></div>
+              <label class="full-field">Anything that helps them feel at home? <span>(optional)</span><textarea name="notes" rows="3" maxlength="500" placeholder="Meals, routines, favorite things, or care needs"></textarea></label>
+              <div class="field-grid owner-fields"><label>Your name<input type="text" name="ownerName" autocomplete="name" placeholder="Your name" maxlength="80" required /></label><label>Your email<input type="email" name="email" autocomplete="email" placeholder="you@example.com" required /></label></div>
+              <button type="submit" class="primary-button review-button">Review this stay <span class="button-arrow" aria-hidden="true">↗</span></button>
+              <p class="form-footnote">A local preview only. Your details are not sent anywhere.</p>
+              <div class="booking-result" id="booking-result" role="status" tabindex="-1" hidden></div>
+            </form>
+            <aside class="booking-summary" aria-labelledby="summary-title"><img id="summary-photo" src="assets/room-cloud.webp" alt="Selected room" /><div class="summary-body"><span class="section-kicker">YOUR STAY AT A GLANCE</span><h3 id="summary-title">A little getaway for your best friend</h3><div class="summary-line"><span>Room</span><strong id="summary-room">The Cloud Suite</strong></div><div class="summary-line"><span>Dates</span><strong id="summary-dates">Add your dates</strong></div><div class="summary-line"><span>Nightly rate</span><strong id="summary-rate">₹2,499</strong></div><div class="summary-line"><span>Nights</span><strong id="summary-nights">—</strong></div><div class="summary-total"><span>Estimated total</span><strong id="summary-total">Add dates</strong></div><p>Just a preview. Nothing is charged or reserved.</p></div></aside>
+          </div>
+        </section>
+
+        <section class="faq-section page-section" id="faq" aria-labelledby="faq-title">
+          <div class="faq-intro"><span class="section-kicker">GOOD TO KNOW</span><h2 id="faq-title">Curious minds.<br /><em>Happy tails.</em></h2><p>Every dog is a little different. Here are a few answers to help you feel ready.</p><a class="text-link" href="#book">Plan a stay <span aria-hidden="true">↗</span></a></div>
+          <div class="faq-list">
+            <details><summary>What will my dog eat?<span aria-hidden="true">+</span></summary><p>Bring their usual food and feeding instructions so their routine feels familiar. Let us know about any sensitivities or special meal needs in the booking notes.</p></details>
+            <details><summary>What should I pack?<span aria-hidden="true">+</span></summary><p>Their food, any care instructions, and a favorite blanket or toy are a lovely start. A familiar scent can make a new room feel like home.</p></details>
+            <details><summary>Is it okay if this is their first stay away?<span aria-hidden="true">+</span></summary><p>Of course. Tell us what helps them settle, and we'll keep their introduction gentle. Short visits and familiar comforts can help first-time guests find their paws.</p></details>
+            <details><summary>Can you follow medication or care routines?<span aria-hidden="true">+</span></summary><p>Add the details to your stay notes so the team can review them with you before arrival. We'll confirm what your dog needs and whether we can support their routine.</p></details>
+            <details><summary>Will I hear how they're doing?<span aria-hidden="true">+</span></summary><p>We know you miss them too. Share your preferred way to hear from us when arranging a real stay, and we'll talk through updates together.</p></details>
+          </div>
+        </section>
+      </main>
+      <footer class="site-footer"><div class="footer-top"><div><a class="brand" href="#top" aria-label="Pillow Paws, back to top"><span class="brand-mark" aria-hidden="true">♥</span><span class="brand-name">pillow<span>paws</span><span class="brand-dot">.</span></span></a><p>A little home away from home for the dogs who make yours complete.</p></div><nav aria-label="Footer navigation"><a href="#rooms">Rooms</a><a href="#the-stay">A day here</a><a href="#team">Our team</a><a href="#book">Book a stay</a><a href="#faq">FAQs</a></nav></div><div class="footer-bottom"><span>© 2026 Pillow Paws</span><span>Made with extra love for very good dogs.</span><a href="#top">Back to top ↑</a></div></footer>
+    </div>
+  </body>
+</html>

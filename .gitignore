@@ -1,0 +1,10 @@
+.DS_Store
+__pycache__/
+*.pyc
+
+# Local references and intermediate artwork; the site uses assets/*.webp.
+dog1.jpg
+rabbit.jpg
+video.mov
+prepare_art.py
+assets/*.png
