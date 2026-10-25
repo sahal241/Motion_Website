@@ -1,25 +1,33 @@
 (() => {
   const dogs = [...document.querySelectorAll('[data-dog]')].map(element => ({
-    element,
-    x: 0,
-    y: 0,
+    eyes: [...element.querySelectorAll('.eye')].map(element => ({
+      element, x: 0, y: 0, velocityX: 0, velocityY: 0,
+    })),
+    idleX: 0,
+    idleY: 0,
+    nextGlance: performance.now() + 1800 + Math.random() * 2200,
   }));
   if (!dogs.length) return;
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const clamp = value => Math.max(-1, Math.min(1, value));
-  const ease = (elapsed, duration) => 1 - Math.exp(-elapsed / duration);
   let pointerX = innerWidth / 2;
   let pointerY = innerHeight / 2;
   let pointerPresent = false;
   let lastPointerMove = 0;
-  let idleX = 0;
-  let idleY = 0;
-  let idleTargetX = 0;
-  let idleTargetY = 0;
-  let nextIdleChange = 0;
   let lastFrame = 0;
   let frame = 0;
+
+  // A critically damped spring eases into each new gaze without overshooting the eye.
+  function settle(position, velocity, target, seconds) {
+    const speed = 16;
+    const offset = position - target;
+    const change = velocity + speed * offset;
+    const decay = Math.exp(-speed * seconds);
+    return [
+      target + (offset + change * seconds) * decay,
+      (velocity - speed * change * seconds) * decay,
+    ];
+  }
 
   window.addEventListener('pointermove', event => {
     if (event.pointerType === 'touch') return;
@@ -35,55 +43,55 @@
       frame = 0;
       return;
     }
-    const elapsed = Math.min(time - (lastFrame || time), 50);
+    const seconds = Math.min(time - (lastFrame || time), 50) / 1000;
     lastFrame = time;
-    const idle = !pointerPresent || time - lastPointerMove > 4500;
-
-    if (idle && time >= nextIdleChange) {
-      idleTargetX = (Math.random() - .5) * .8;
-      idleTargetY = (Math.random() - .5) * .6;
-      nextIdleChange = time + 3200 + Math.random() * 2400;
-    }
-    idleX += (idleTargetX - idleX) * ease(elapsed, 900);
-    idleY += (idleTargetY - idleY) * ease(elapsed, 900);
+    const idle = !pointerPresent || time - lastPointerMove > 4800;
 
     dogs.forEach(dog => {
-      const rect = dog.element.getBoundingClientRect();
-      const focusX = rect.left + rect.width * .51;
-      const focusY = rect.top + rect.height * .45;
-      const wantedX = idle ? idleX : clamp((pointerX - focusX) / Math.max(innerWidth * .42, 270));
-      const wantedY = idle ? idleY : clamp((pointerY - focusY) / Math.max(innerHeight * .45, 240));
-      dog.x += (wantedX - dog.x) * ease(elapsed, 145);
-      dog.y += (wantedY - dog.y) * ease(elapsed, 145);
-      const scale = rect.width / 1312;
-      dog.element.style.setProperty('--look-x', `${(dog.x * 18 * scale).toFixed(2)}px`);
-      dog.element.style.setProperty('--look-y', `${(dog.y * 12 * scale).toFixed(2)}px`);
+      if (idle && time >= dog.nextGlance) {
+        dog.idleX = (Math.random() - .5) * .8;
+        dog.idleY = (Math.random() - .5) * .55;
+        dog.nextGlance = time + 2800 + Math.random() * 3200;
+      }
+
+      dog.eyes.forEach(eye => {
+        const rect = eye.element.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const gazeX = idle ? dog.idleX : Math.tanh((pointerX - centerX) / Math.max(innerWidth * .38, 260));
+        const gazeY = idle ? dog.idleY : Math.tanh((pointerY - centerY) / Math.max(innerHeight * .42, 230));
+        const targetX = gazeX * rect.width * .18;
+        const targetY = gazeY * rect.height * .12;
+        [eye.x, eye.velocityX] = settle(eye.x, eye.velocityX, targetX, seconds);
+        [eye.y, eye.velocityY] = settle(eye.y, eye.velocityY, targetY, seconds);
+        eye.element.style.setProperty('--look-x', `${eye.x.toFixed(2)}px`);
+        eye.element.style.setProperty('--look-y', `${eye.y.toFixed(2)}px`);
+      });
     });
     frame = requestAnimationFrame(animate);
   }
 
   function blink(dog) {
     if (!reducedMotion.matches) {
-      const eyes = [...dog.element.querySelectorAll('.eye')];
-      eyes.forEach(eye => {
-        eye.classList.remove('blink');
-        void eye.offsetWidth;
-        eye.classList.add('blink');
-        setTimeout(() => eye.classList.remove('blink'), 330);
+      dog.eyes.forEach(({ element }) => {
+        element.classList.remove('blink');
+        void element.offsetWidth;
+        element.classList.add('blink');
+        setTimeout(() => element.classList.remove('blink'), 330);
       });
     }
-    setTimeout(() => blink(dog), 4000 + Math.random() * 4600);
+    setTimeout(() => blink(dog), 3700 + Math.random() * 4500);
   }
 
   reducedMotion.addEventListener('change', () => {
     if (reducedMotion.matches) {
       cancelAnimationFrame(frame);
       frame = 0;
-      dogs.forEach(dog => {
-        dog.x = dog.y = 0;
-        dog.element.style.setProperty('--look-x', '0px');
-        dog.element.style.setProperty('--look-y', '0px');
-      });
+      dogs.forEach(dog => dog.eyes.forEach(eye => {
+        eye.x = eye.y = eye.velocityX = eye.velocityY = 0;
+        eye.element.style.setProperty('--look-x', '0px');
+        eye.element.style.setProperty('--look-y', '0px');
+      }));
     } else if (!frame) {
       lastFrame = 0;
       frame = requestAnimationFrame(animate);
